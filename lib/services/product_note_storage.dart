@@ -47,6 +47,6 @@ class ProductNoteStorage {
     notes.removeWhere((item) => item.productoId == nota.productoId);
     notes.add(nota); 
 
-    await _writeAll(notes);
+    await _writeAll(notes)
   }
 }
