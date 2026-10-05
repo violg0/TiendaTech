@@ -24,7 +24,7 @@ class Producto {
       id: json["id"],
       nombre: json['nombre'],
       categoria: json['categoria'],
-      precio: json['precio'],
+      precio: (json['precio'] as num).toDouble(),
       disponibilidad: json['disponibilidad'],
       descripcion: json['descripcion'],
       imagePath: json['imagePath']

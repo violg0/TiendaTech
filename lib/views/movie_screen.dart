@@ -12,11 +12,6 @@ class productoscreen extends StatefulWidget {
   State<productoscreen> createState() => _productoscreenState();
 }
 
-@override
-void initState(){
-  super.initState
-}
-
 class _productoscreenState extends State<productoscreen> {
   // Estado de la pantalla.
   // Durante la clase analizaremos qué representa cada variable
@@ -29,7 +24,6 @@ class _productoscreenState extends State<productoscreen> {
   late final ProductService _service;
   late Future<List<Producto>> _futureProducts;
   
-  @override
   void toggleFavorite(int productoId){
     setState(() {
       if(favoriteId == productoId){
@@ -41,8 +35,6 @@ class _productoscreenState extends State<productoscreen> {
       });
       saveFavorite();
   }
-
-  void retryProducts
 
 Future<void> saveFavorite() async{
   final prefs= await SharedPreferences.getInstance();
@@ -68,7 +60,7 @@ Future<void> saveFavorite() async{
   void initState() {
     // TODO: implement initState
     super.initState();
-    _service = ProductService('https://dummyjson.com/c/1bcd-f17b-4b82-a687s');
+    _service = ProductService('http://localhost:3000/products');
     _futureProducts = _service.getProducts();
   }
 
@@ -103,7 +95,7 @@ Future<void> saveFavorite() async{
           return const Center();
         }
 
-      final productos = snapshot.data ?? []; 
+      final productos = snapshot.data ?? [];
 
       if(errorMessage.isNotEmpty){
         return Center(

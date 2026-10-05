@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class ProductNote {
   final int productoId;
   final String note;
@@ -10,7 +8,7 @@ class ProductNote {
     required this.productoId,
     required this.note,
     required this.rating,
-    required updateAT
+    required this.updateAT,
   });
 
   factory ProductNote.fromJson(Map<String, dynamic> json){
@@ -18,7 +16,7 @@ class ProductNote {
       productoId: json['productoId'],
       note: json['note'],
       rating: json['rating'],
-      updateAT: DateTime.parse(json['update_at'] as String));
+      updateAT: DateTime.parse(json['updated_at'] as String));
   }
 
   Map <String, dynamic> tojson() =>{
@@ -26,5 +24,5 @@ class ProductNote {
     'note': note,
     'rating': rating,
     'updated_at': updateAT.toIso8601String()
-  }
+  };
 }

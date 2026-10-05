@@ -29,16 +29,16 @@ class ProductNoteStorage {
     await file.writeAsString(jsonEncode(data));
   }
 
-  Future<ProductNote?> getNoteForProduct(int product_id) async{
+  Future<ProductNote?> getNoteForProduct(int product_id) async {
     final notes = await _readAll();
 
-    for(final note in notes){
-      if(note.productoId == product_id){
+    for (final note in notes) {
+      if (note.productoId == product_id) {
         return note;
       }
-
-      return null;
     }
+
+    return null;
   }
 
   Future<void> saveNote(ProductNote nota) async{
@@ -47,6 +47,6 @@ class ProductNoteStorage {
     notes.removeWhere((item) => item.productoId == nota.productoId);
     notes.add(nota); 
 
-    await _writeAll(notes)
+    await _writeAll(notes);
   }
 }
